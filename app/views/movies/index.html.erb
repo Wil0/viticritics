@@ -1,2 +1,18 @@
 <h1>Movies#index</h1>
 <p>Welcome</p>
+<% if @movies.any? %>
+  <table>
+    <th> Title </th>
+    <th> Rating </th>
+    <th> Review </th>
+    <tr>
+      <% @movies.each do |movie| %>
+      <td><%= movie.title %></td>
+      <td><%= movie.rating %></td>
+      <td><%= movie.review.blank? ? 'No review' : movie.review  %></td>
+    </tr>
+    <% end %>
+  </table>
+<% else %>
+  No movies added yet
+<% end %>
