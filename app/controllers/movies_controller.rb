@@ -26,6 +26,13 @@ class MoviesController < ApplicationController
     redirect_to '/'
   end
 
+  def destroy
+    @movie = Movie.find(params[:id])
+    @movie.destroy
+    flash[:notice] = "Película eliminada correctamente"
+    redirect_to '/'
+  end
+
   private
 
   def movie_params

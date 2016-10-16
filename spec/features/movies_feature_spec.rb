@@ -58,4 +58,14 @@ feature 'movies' do
       expect(current_path).to eq '/'
     end
   end
+
+  context 'deleting movies' do
+    scenario 'removes a movie when a user clicks a delete link' do
+      movie
+      visit '/'
+      click_link "Eliminar #{movie.title}"
+      expect(page).not_to have_content movie.title
+      expect(page).to have_content 'Película eliminada correctamente'
+    end
+  end
 end

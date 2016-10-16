@@ -1,4 +1,3 @@
-<h1>Quarto de cine: aquí empieza Viticritics</h1>
 <% if @movies.any? %>
   <table>
     <th> Título </th>
@@ -10,6 +9,7 @@
       <td><%= movie.rating %></td>
       <td><%= movie.review.blank? ? 'No hay reseña para esta pelicula' : movie.review  %></td>
       <td><%= link_to "Editar #{movie.title}", edit_movie_path(movie) %></td>
+      <td><%= link_to "Eliminar #{movie.title}", movie_path(movie), method: :delete %></td>
     </tr>
     <% end %>
   </table>
