@@ -1,7 +1,16 @@
 FactoryGirl.define do
   factory :movie do
-    title 'Superman'
-    rating 5
-    review 'A superhero from another planet'
+
+    factory :example_movie do
+      title 'Superman'
+      rating 5
+      review 'A superhero from another planet'
+    end
+
+    factory :another_movie do
+      title 'Robocop'
+      rating 6
+      review 'Could have been better'
+    end
   end
 end

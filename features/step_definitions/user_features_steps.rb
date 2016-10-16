@@ -3,8 +3,8 @@ Given(/^I visit index page$/) do
 end
 
 Given(/^there is the "([^"]*)" movie with a rating of (\d+)$/) do |title, rating|
-  FactoryGirl.create(:movie)
-  expect(Movie.count).to eq 1
+  movie = FactoryGirl.create(:movie)
+  expect(page).to have_content movie.title
 end
 
 Given(/^I click on "([^"]*)" button$/) do |button|
@@ -14,7 +14,7 @@ end
 When(/^I fill the form for "([^"]*)" with a rating of (\d+)$/) do |title, rate|
   fill_in 'movie[title]', with: title
   fill_in 'movie[rating]', with: rate
-  click_on 'Create Movie'
+  click_on 'Crear película'
 end
 
 Then(/^I see "([^"]*)" has been added to the list of movies$/) do |title|
@@ -30,4 +30,9 @@ Then(/^I see a movie which title is "([^"]*)"$/) do |titles|
   skip_this_scenario
   movie = Movie.find_by(title: titles)
   expect(page).to have_content(movie.title)
+end
+
+Then(/^I see "([^"]*)" as a review for "([^"]*)"$/) do |review, title|
+  movie = Movie.find_by(title: title)
+  visit movies_path(movie)
 end

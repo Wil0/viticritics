@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-resource :movies
+  get 'movies/edit'
+
+  get 'movies/show'
+
+resources :movies
 
   root to: 'movies#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

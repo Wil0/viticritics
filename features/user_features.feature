@@ -1,15 +1,20 @@
 Feature: As a User
-  Scenario: I can see a welcome message
+  Background:
     Given I visit index page
+
+  Scenario: I can see a welcome message
     Then I see a "Welcome" message
 
   Scenario: I can see a list of movies
-    Given I visit index page
     And there is the "Superman" movie with a rating of 2
     Then I see a movie which title is "Superman"
 
-  Scenario: I can add a movie
-    Given I visit index page
-    And I click on "Add a movie" button
-    When I fill the form for "Rambo" with a rating of 2
+  Scenario: I can add a movie to the website
+    When I click on "Añadir película" button
+    And I fill the form for "Rambo" with a rating of 2
     Then I see "Rambo" has been added to the list of movies
+
+  Scenario: I can see a review of a movie
+    And there is the "Superman" movie with a rating of 2
+    When I click on "Superman" button
+    Then I see "Not a bad movie" as a review for "Superman"
