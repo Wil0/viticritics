@@ -1,2 +1,3 @@
 <%= @movie.title %>
+<td><%= image_tag @movie.avatar.url(:medium) %></td>
 <%= @movie.review.blank? ? 'No hay reseña para esta pelicula' : @movie.review  %>

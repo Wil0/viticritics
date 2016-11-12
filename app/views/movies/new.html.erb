@@ -1,11 +1,16 @@
-<h1>Añadir nueva pelicula</h1>
-<%= form_for @movie do |m| %>
-  <%= m.file_field :avatar %>
-  <%= m.label :titulo %>
-  <%= m.text_field :title %>
-  <%= m.label :calificación %>
-  <%= m.text_field :rating %>
-  <%= m.label :review %>
-  <%= m.text_field :review %>
-  <%= m.submit 'Crear película' %>
-<% end %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Añadir nueva pelicula</h1>
+    <% if @movie.errors.full_messages.any? %>
+      <% @movie.errors.full_messages.each do |message| %>
+        <p><%= message %></p>
+      <% end %>
+      <% end %>
+    <%= render "form"%>
+  </body>
+</html>

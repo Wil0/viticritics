@@ -12,7 +12,13 @@ class MoviesController < ApplicationController
 
   def create
     @movie = Movie.create(movie_params)
-    redirect_to '/'
+    if @movie.save
+      redirect_to '/'
+      flash[:notice] = 'Película creada satisfactoriamente'
+    else
+      render "new", notice: 'Por favor rellena todos los campos obligatorios'
+
+    end
   end
 
   def show
