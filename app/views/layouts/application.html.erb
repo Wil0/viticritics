@@ -9,14 +9,22 @@
   </head>
 
   <body>
-    <h1>Quarto de cine: aquí empieza Viticritics</h1>
-    <% if user_signed_in? %>
-      <%= link_to "Cerrar sesión", destroy_user_session_path %>
-    <% else %>
-      <%= link_to "Registrarse", new_user_registration_path %>
-      <%= link_to "Iniciar sesión", new_user_session_path %>
-    <% end %>
-    <%= notice %>
-    <%= yield %>
+    <nav class="navbar navbar-default">
+        <div class="row">
+          <div class="col-md-2" id='main-title'>
+              <%= link_to "<h3>Quarto de <strong>cine</strong></h3>".html_safe, movies_path %>
+          </div>
+          <div class="col-md-2" id="subtitle">
+            <% if user_signed_in? %>
+              <%= link_to "Cerrar sesión", destroy_user_session_path %>
+            <% else %>
+              <%= link_to "Registrarse", new_user_registration_path %> |
+              <%= link_to "Iniciar sesión", new_user_session_path %>
+            <% end %>
+          </div>
+        </div>
+    </nav>
+      <%= notice %>
+      <%= yield %>
   </body>
 </html>

@@ -9,7 +9,32 @@
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
  */
+ // Custom bootstrap variables must be set or imported before bootstrap itself.
+@import "bootstrap";
+@import "movies.scss";
+
+nav {
+  background-color: #333333
+}
+
+#main-title {
+  background-color: #000000;
+  border-radius: 2em;
+  text-align:center
+}
+
+#main-title a {
+  color: #e7c230;
+  text-decoration: none;
+}
+
+#subtitle {
+  float: right;
+  color: #e7c230;
+}
+
+#subtitle a {
+  color: #e7c230;
+  text-decoration: none;
+}

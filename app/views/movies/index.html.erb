@@ -1,20 +1,39 @@
-<% if @movies.any? %>
-  <table>
-    <th> Título </th>
-    <th> Calificación </th>
-    <th> Reseña </th>
-    <tr>
-      <% @movies.each do |movie| %>
-      <td><%= link_to movie.title, movie_path(movie) %></td>
-      <td><%= movie.rating %></td>
-      <td><%= movie.review.blank? ? 'No hay reseña para esta pelicula' : movie.review  %></td>
-      <td><%= link_to "Editar #{movie.title}", edit_movie_path(movie) %></td>
-      <td><%= link_to "Eliminar #{movie.title}", movie_path(movie), method: :delete %></td>
-    </tr>
-    <% end %>
-  </table>
-<% else %>
-  Todavía no hay películas
-<% end %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <% if @movies.any? %>
+    <div class="container">
+      <table>
+        <th> Título </th>
+        <th> Calificación </th>
+        <th> Reseña </th>
+        <tr>
+          <% @movies.each do |movie| %>
+          <td><%= link_to movie.title, movie_path(movie) %></td>
+          <td><%= movie.rating %></td>
+          <td><%= movie.review.blank? ? 'No hay reseña para esta pelicula' : movie.review  %></td>
+          <td>
+            <button type="button" class="btn btn-warning btn-xs">
+              <%= link_to "Editar #{movie.title}", edit_movie_path(movie) %></td>
+            </button>
+          <td >
+            <button type="button" class="btn btn-danger btn-xs">
+              <%= link_to "Eliminar #{movie.title}", movie_path(movie), method: :delete %>
+            </button>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+      <% else %>
+        Todavía no hay películas
+      <% end %>
+    </div>
 
-<%= link_to 'Añadir película', new_movie_path %>
+    <%= link_to 'Añadir película', new_movie_path %>
+
+  </body>
+</html>
