@@ -1,11 +1,2 @@
 <h1><%= "Editar #{@movie.title}" %></h1>
-<%= form_for @movie do |m| %>
-  <%= m.file_field :avatar %>
-  <%= m.label :titulo %>
-  <%= m.text_field :title %>
-  <%= m.label :calificación %>
-  <%= m.select :rating, (1..10) %>
-  <%= m.label :review %>
-  <%= m.text_field :review %>
-  <%= m.submit "Actualizar #{@movie.title}" %>
-<% end %>
+<%= render "form" %>

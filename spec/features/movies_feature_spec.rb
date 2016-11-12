@@ -12,7 +12,7 @@ feature 'movies' do
       click_on 'Añadir película'
       attach_file 'movie[avatar]', "#{Rails.root}" + '/spec/ruby.png'
       fill_in 'movie[title]', with: movie.title
-      fill_in 'movie[rating]', with: movie.rating
+      select movie.rating, from: 'movie[rating]'
       click_on 'Crear película'
       expect(page).not_to have_content 'Todavía no hay películas'
       expect(page).to have_link movie.title

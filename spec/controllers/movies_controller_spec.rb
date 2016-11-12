@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe MoviesController, type: :controller do
-  let(:movie1) { create(:movie, title: 'MI:4') }
+  let(:movie1) { create(:another_movie) }
 
   describe "GET #index" do
     it "returns http success" do
@@ -12,7 +12,7 @@ RSpec.describe MoviesController, type: :controller do
     context 'when a movie is saved' do
       it 'renders a list of saved movies' do
         movie1
-        movie2 = create(:movie)
+        movie2 = create(:example_movie)
         get :index
         expect(Movie.all).to match_array([movie1, movie2])
       end
