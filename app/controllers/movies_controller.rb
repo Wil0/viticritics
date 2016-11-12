@@ -16,8 +16,7 @@ class MoviesController < ApplicationController
       redirect_to '/'
       flash[:notice] = 'Película creada satisfactoriamente'
     else
-      render "new", notice: 'Por favor rellena todos los campos obligatorios'
-
+      render "new"
     end
   end
 
