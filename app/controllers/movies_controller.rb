@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
 
   before_action :authenticate_user!, :except => [:index, :show]
-  
+
   def index
     @movies = Movie.all
   end
@@ -39,6 +39,6 @@ class MoviesController < ApplicationController
   private
 
   def movie_params
-    params.require(:movie).permit(:title, :rating, :review)
+    params.require(:movie).permit(:title, :rating, :review, :avatar)
   end
 end

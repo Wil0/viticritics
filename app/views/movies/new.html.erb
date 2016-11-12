@@ -1,5 +1,6 @@
 <h1>Añadir nueva pelicula</h1>
 <%= form_for @movie do |m| %>
+  <%= m.file_field :avatar %>
   <%= m.label :titulo %>
   <%= m.text_field :title %>
   <%= m.label :calificación %>
